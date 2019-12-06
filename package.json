@@ -2,18 +2,27 @@
   "name": "cookbooks",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.0",
+    "customize-cra": "^0.9.1",
+    "http-proxy-middleware": "^0.20.0",
+    "react-app-rewired": "^2.1.5"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "antd-mobile": "^2.3.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "mock": "json-server ./src/mock/mock.js -r ./src/mock/route.json -p 9000 --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

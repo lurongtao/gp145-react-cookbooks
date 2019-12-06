@@ -1,0 +1,14 @@
+react
+react-router-dom
+redux
+- react-redux
+- redux-saga
+mobx
+styled-components
+antd-mobile
+immutable
+hooks
+typescript
+
+
+json-server
