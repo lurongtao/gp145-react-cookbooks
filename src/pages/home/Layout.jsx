@@ -11,7 +11,7 @@ import menuActive from 'assets/images/menu-active.png'
 import more from 'assets/images/more.png'
 import moreActive from 'assets/images/more-active.png'
 
-import CookBook from './cookbook/Cookbook'
+import { CookBook } from './index'
 
 class Layout extends React.Component {
   constructor(props) {
