@@ -19,6 +19,7 @@ const mapDispatch = dispatch => ({
   }
 })
 
+@connect(mapState, mapDispatch)
 class Swiper extends Component {
   componentDidMount() {
     this.props.loadData()
@@ -27,17 +28,21 @@ class Swiper extends Component {
   render() {
     return (
       <SwiperWrap>
-        <Carousel
-          autoplay={false}
-          infinite
-        >
-          {
-            this.props.list.slice(0, 5).map((value) => <img key={value.id} src={value.img} alt=""/>)
-          }
-        </Carousel>
+        {
+          this.props.list.length && (
+            <Carousel
+              autoplay={true}
+              infinite
+            >
+              {
+                this.props.list.slice(0, 5).map((value) => <img key={value.id} src={value.img} alt=""/>)
+              }
+            </Carousel>
+          )
+        }
       </SwiperWrap>
     )
   }
 }
 
-export default connect(mapState, mapDispatch)(Swiper)
+export default Swiper

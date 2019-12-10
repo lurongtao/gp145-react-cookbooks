@@ -27,10 +27,18 @@ export const HotCatHeader = border(styled.header `
 
 export const HotcatWrap = styled.div `
   padding-bottom: .2rem;
+  /* Grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
   .item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    justify-content: center;
     span {
       margin-top: .05rem;
     }

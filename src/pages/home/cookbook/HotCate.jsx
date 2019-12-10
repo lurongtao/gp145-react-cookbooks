@@ -19,6 +19,12 @@ export default class HotCate extends Component {
       icon: value.img
     }))
 
+    data.push({
+      key: 'a001',
+      title: '更多...',
+      icon: ''
+    })
+
     this.setState({
       hotList: data
     })
@@ -26,7 +32,9 @@ export default class HotCate extends Component {
 
   _renderItem = dataItem => (
     <div className='item'>
-      <img src={dataItem.icon} alt=""/>
+      {
+        dataItem.icon && <img src={dataItem.icon} alt=""/>
+      }
       <span>{dataItem.title}</span>
     </div>
   )
