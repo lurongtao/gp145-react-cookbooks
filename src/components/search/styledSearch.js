@@ -3,6 +3,7 @@ import border from '../styled/border'
 
 export const SearchWrap = styled.div `
   padding: .1rem .15rem;
+  background: ${props => props.wrapperBgc || 'transparent'}
 `
 
 export const InputWrap = border(

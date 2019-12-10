@@ -3,7 +3,7 @@ import Header from './Header'
 import Swiper from './Swiper'
 import Search from '@/search/Search'
 import HotCate from './HotCate'
-import Test from './Test'
+import HotList from './HotList'
 
 export default class Cookbook extends Component {
   render() {
@@ -11,9 +11,14 @@ export default class Cookbook extends Component {
       <>
         <Header></Header>
         <Swiper></Swiper>
-        <Search></Search>
+        <Search
+          width="1px"
+          color="#ee742f"
+          radius={5}
+          wrapperBgc="transparent"
+        ></Search>
         <HotCate></HotCate>
-        <Test></Test>
+        <HotList></HotList>
       </>
     )
   }

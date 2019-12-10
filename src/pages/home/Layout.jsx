@@ -11,13 +11,13 @@ import menuActive from 'assets/images/menu-active.png'
 import more from 'assets/images/more.png'
 import moreActive from 'assets/images/more-active.png'
 
-import { CookBook } from './index'
+import { CookBook, Category } from './index'
 
 class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'cookbook',
+      selectedTab: 'category',
       hidden: false,
       fullScreen: true,
     }
@@ -80,7 +80,7 @@ class Layout extends React.Component {
               });
             }}
           >
-            <div>b</div>
+            <Category></Category>
           </TabBar.Item>
           <TabBar.Item
             icon={

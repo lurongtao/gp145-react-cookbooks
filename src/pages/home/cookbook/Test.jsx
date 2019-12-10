@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 
+// 柯里化函数
 function connect(mapState, mapDispatch) {
-  return (target) => {
-    target.prototype.conn = {
-      title: mapState({title: 'a'}).title,
-      setTitle: mapDispatch().setTitle
+  return Target => {
+    return class extends Component {
+      render() {
+        return (
+          <Target
+            {...mapState({title: 'hello'})}
+            {...mapDispatch()}
+          ></Target>
+        )
+      }
     }
   }
 }
@@ -22,8 +29,7 @@ function connect(mapState, mapDispatch) {
 })
 class Test extends Component {
   render() {
-    console.log(this.conn.title)
-    this.conn.setTitle()
+    console.log(this.props)
     return (
       <div>
         test
