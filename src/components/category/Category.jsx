@@ -5,7 +5,18 @@ import { get } from 'utils/http'
 export default class Category extends Component {
   state = {
     datasource: null,
-    currentItem: '热门'
+    defaultItem: '',
+    currentItem: ''
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.defaultItem !== state.defaultItem) {
+      return {
+        defaultItem: props.defaultItem,
+        currentItem: props.defaultItem
+      }
+    }
+    return null
   }
 
   async componentDidMount() {
@@ -26,12 +37,14 @@ export default class Category extends Component {
   }
 
   render() {
+    let { type } = this.props
     let items = this.state.datasource 
-      ? Object.keys(this.state.datasource['category']) 
+      ? Object.keys(this.state.datasource[type]) 
       : []
     let contents = this.state.datasource 
-      ? this.state.datasource['category'][this.state.currentItem] 
+      ? this.state.datasource[type][this.state.currentItem] 
       : []
+
     return (
       <CateWrap
         width="1px 0 0 0"

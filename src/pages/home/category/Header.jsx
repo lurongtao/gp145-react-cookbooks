@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { HeaderWrap, SliderArea } from './styledCategory'
+import { withRouter } from 'react-router-dom'
 
-export default class Header extends Component {
+@withRouter
+class Header extends Component {
   state = {
-    dir: 'left'
+    dir: this.getPath(this.props)
+  }
+
+  getPath(props) {
+    return props.location.pathname === '/' ? 'category' : props.location.pathname.substr(1)
   }
 
   handleClick = dir => {
@@ -11,6 +17,7 @@ export default class Header extends Component {
       this.setState({
         dir
       })
+      this.props.history.push(`/${dir}`)
     }
   }
 
@@ -23,16 +30,18 @@ export default class Header extends Component {
           radius={15}
         >
           <li
-            onClick={this.handleClick('left')}
-            className={this.state.dir === 'left' ? 'active' : ''}
+            onClick={this.handleClick('category')}
+            className={this.state.dir === 'category' ? 'active' : ''}
           >分类</li>
           <li
-            onClick={this.handleClick('right')}
-            className={this.state.dir === 'right' ? 'active' : ''}
+            onClick={this.handleClick('material')}
+            className={this.state.dir === 'material' ? 'active' : ''}
           >食材</li>
-          <li className={`slider ${this.state.dir === 'right' ? 'right' : ''}`}></li>
+          <li className={`slider ${this.state.dir === 'material' ? 'right' : ''}`}></li>
         </SliderArea>
       </HeaderWrap>
     )
   }
 }
+
+export default Header
