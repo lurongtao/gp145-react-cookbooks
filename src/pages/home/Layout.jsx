@@ -25,7 +25,7 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+      <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0, overflow: 'hidden' } : { height: 400 }}>
         <TabBar
           unselectedTintColor="#666"
           tintColor="#000"

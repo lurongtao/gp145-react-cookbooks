@@ -216,3 +216,8 @@ a {
 @font-face {
   font-family: 'yofont';
   src: url("/assets/icons/iconfont.woff") format("woff"), url("/assets/icons/iconfont.ttf") format("truetype"); }
+
+
+/* .am-tab-bar-item {
+  overflow: hidden;
+} */

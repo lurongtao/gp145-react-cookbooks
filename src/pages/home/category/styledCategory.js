@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import border from '@/styled/border'
 
+export const CateWrap = styled.div `
+  height: 100%;
+  overflow: hidden;
+`
+
 export const HeaderWrap = styled.div `
   height: .44rem;
   background: #ee742f;
