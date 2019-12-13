@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { CateWrap } from './styledCategory'
 import { get } from 'utils/http'
+import { withRouter } from 'react-router-dom'
 
-export default class Category extends Component {
+@withRouter
+class Category extends Component {
   state = {
     datasource: null,
-    defaultItem: '',
-    currentItem: ''
+    // defaultItem: '',
+    currentItem: '热门'
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -26,6 +28,14 @@ export default class Category extends Component {
     this.setState({
       datasource: result.data
     })
+
+    // 侦听路由的变化
+    // this.props.history.listen((route) => {
+    //   let defaultItem = route.pathname === '/category' ? '热门' : '肉类'
+    //   this.setState({
+    //     currentItem: defaultItem
+    //   })
+    // })
   }
 
   handleItemClick = (item) => {
@@ -45,6 +55,7 @@ export default class Category extends Component {
       ? this.state.datasource[type][this.state.currentItem] 
       : []
 
+    
     return (
       <CateWrap
         width="1px 0 0 0"
@@ -75,3 +86,5 @@ export default class Category extends Component {
     )
   }
 }
+
+export default Category
