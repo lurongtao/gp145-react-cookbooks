@@ -34,60 +34,61 @@ class Layout extends React.Component {
           unselectedTintColor="#666"
           tintColor="#000"
           barTintColor="white"
+          prerenderingSiblingsNumber={Infinity}
           hidden={this.state.hidden}
         >
-          <TabBar.Item
-            title="美食大全"
-            key="cookbook"
-            icon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: `url(${cookbook}) center center /  28px 28px no-repeat` }}
-            />
-            }
-            selectedIcon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: `url(${cookbookActive}) center center /  28px 28px no-repeat` }}
-            />
-            }
-            selected={this.state.selectedTab === 'cookbook'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'cookbook',
-              });
-            }}
-          >
-            <CookBook></CookBook>
-          </TabBar.Item>
-          <TabBar.Item
-            icon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: `url(${menu}) center center /  21px 21px no-repeat` }}
-              />
-            }
-            selectedIcon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: `url(${menuActive}) center center /  21px 21px no-repeat` }}
-              />
-            }
-            title="分类"
-            key="category"
-            selected={this.state.selectedTab === 'category'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'category',
-              });
-            }}
-          >
-            <Category></Category>
-          </TabBar.Item>
           {
-            this.props.isShow ? (
+            [
+              <TabBar.Item
+                title="美食大全"
+                key="cookbook"
+                icon={<div style={{
+                  width: '22px',
+                  height: '22px',
+                  background: `url(${cookbook}) center center /  28px 28px no-repeat` }}
+                />
+                }
+                selectedIcon={<div style={{
+                  width: '22px',
+                  height: '22px',
+                  background: `url(${cookbookActive}) center center /  28px 28px no-repeat` }}
+                />
+                }
+                selected={this.state.selectedTab === 'cookbook'}
+                onPress={() => {
+                  this.setState({
+                    selectedTab: 'cookbook',
+                  });
+                }}
+              >
+                <CookBook></CookBook>
+              </TabBar.Item>,
+              <TabBar.Item
+                icon={
+                  <div style={{
+                    width: '22px',
+                    height: '22px',
+                    background: `url(${menu}) center center /  21px 21px no-repeat` }}
+                  />
+                }
+                selectedIcon={
+                  <div style={{
+                    width: '22px',
+                    height: '22px',
+                    background: `url(${menuActive}) center center /  21px 21px no-repeat` }}
+                  />
+                }
+                title="分类"
+                key="category"
+                selected={this.state.selectedTab === 'category'}
+                onPress={() => {
+                  this.setState({
+                    selectedTab: 'category',
+                  });
+                }}
+              >
+                <Category></Category>
+              </TabBar.Item>,
               <TabBar.Item
                 icon={
                   <div style={{
@@ -113,23 +114,25 @@ class Layout extends React.Component {
                 }}
               >
                 <Map></Map>
+              </TabBar.Item>,
+              <TabBar.Item
+                icon={{ uri: more }}
+                selectedIcon={{ uri: moreActive }}
+                title="更多"
+                key="more"
+                selected={this.state.selectedTab === 'more'}
+                onPress={() => {
+                  this.setState({
+                    selectedTab: 'more',
+                  });
+                }}
+              >
+                <Profile></Profile>
               </TabBar.Item>
-            ) : <div key='abc'></div>
+            ].filter((Item, index) => {
+              return (index === 2 && this.props.isShow) || index !== 2
+            })
           }
-          <TabBar.Item
-            icon={{ uri: more }}
-            selectedIcon={{ uri: moreActive }}
-            title="更多"
-            key="more"
-            selected={this.state.selectedTab === 'more'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'more',
-              });
-            }}
-          >
-            <Profile></Profile>
-          </TabBar.Item>
         </TabBar>
       </div>
     );

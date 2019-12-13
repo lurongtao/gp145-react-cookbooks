@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
-import { Switch } from 'antd-mobile'
 
-export default class Profile extends Component {
-  state = {
-    checked: true
+import { connect } from 'react-redux'
+import { SETSHOW } from '../action-types'
+
+import ProfileUI from './ProfileUI'
+
+@connect(state => ({
+  checked: state.home.isShow
+}), dispatch => ({
+  changeStatus(checked) {
+    dispatch({
+      type: SETSHOW,
+      data: checked
+    })
   }
-
+}))
+class Profile extends Component {
   render() {
-    return (
-      <div style={{padding: 20}}>
-        是否显示地图：
-        <Switch
-          checked={this.state.checked}
-          onChange={checked => {
-            this.setState(state => ({
-              checked: !state.checked
-            }))
-          }}
-        />
-      </div>
-    )
+    return <ProfileUI {...this.props}></ProfileUI>
   }
 }
+
+export default Profile

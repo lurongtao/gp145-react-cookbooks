@@ -2,7 +2,7 @@ import { LOADDATA, SETSHOW } from './action-types'
 
 const defaultState = {
   list: [],
-  isShow: false
+  isShow: localStorage.getItem('isShow') === 'false' ? false : true
 }
 
 export default (state=defaultState, action) => {

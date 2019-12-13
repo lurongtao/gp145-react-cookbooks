@@ -14,6 +14,10 @@ export const SwiperWrap = styled.div `
   height: 0;
   font-size: 0;
   padding-bottom: 66.66667%;
+  > div {
+    height: 100% !important;
+    padding-bottom: 66.66667%;
+  }
   img {
     width: 100%;
   }
