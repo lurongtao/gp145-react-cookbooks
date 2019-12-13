@@ -4,6 +4,10 @@ import border from '@/styled/border'
 export const CateWrap = border(styled.div `
   height: 100%;
   display: flex;
+  width: 100%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
   > div:first-child {
     width: .9rem;
     > ul {

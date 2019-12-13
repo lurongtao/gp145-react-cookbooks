@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { CateWrap } from './styledCategory'
 import { get } from 'utils/http'
 import { withRouter } from 'react-router-dom'
+import cateAnimate from '@/hoc/cateAnimate'
 
+@cateAnimate
 @withRouter
 class Category extends Component {
   state = {

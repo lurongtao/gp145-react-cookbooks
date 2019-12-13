@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { TabBar } from 'antd-mobile'
 
@@ -11,13 +12,16 @@ import menuActive from 'assets/images/menu-active.png'
 import more from 'assets/images/more.png'
 import moreActive from 'assets/images/more-active.png'
 
-import { CookBook, Category } from './index'
+import { CookBook, Category, Map, Profile } from './index'
 
+@connect((state) => ({
+  isShow: state.home.isShow
+}))
 class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'category',
+      selectedTab: 'cookbook',
       hidden: false,
       fullScreen: true,
     }
@@ -82,32 +86,36 @@ class Layout extends React.Component {
           >
             <Category></Category>
           </TabBar.Item>
-          <TabBar.Item
-            icon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: `url(${location}) center center /  21px 21px no-repeat` }}
-              />
-            }
-            selectedIcon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: `url(${locationActive}) center center /  21px 21px no-repeat` }}
-              />
-            }
-            title="美食地图"
-            key="map"
-            selected={this.state.selectedTab === 'map'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'map',
-              });
-            }}
-          >
-            <div>c</div>
-          </TabBar.Item>
+          {
+            this.props.isShow ? (
+              <TabBar.Item
+                icon={
+                  <div style={{
+                    width: '22px',
+                    height: '22px',
+                    background: `url(${location}) center center /  21px 21px no-repeat` }}
+                  />
+                }
+                selectedIcon={
+                  <div style={{
+                    width: '22px',
+                    height: '22px',
+                    background: `url(${locationActive}) center center /  21px 21px no-repeat` }}
+                  />
+                }
+                title="美食地图"
+                key="map"
+                selected={this.state.selectedTab === 'map'}
+                onPress={() => {
+                  this.setState({
+                    selectedTab: 'map',
+                  });
+                }}
+              >
+                <Map></Map>
+              </TabBar.Item>
+            ) : <div key='abc'></div>
+          }
           <TabBar.Item
             icon={{ uri: more }}
             selectedIcon={{ uri: moreActive }}
@@ -120,7 +128,7 @@ class Layout extends React.Component {
               });
             }}
           >
-            <div>d</div>
+            <Profile></Profile>
           </TabBar.Item>
         </TabBar>
       </div>

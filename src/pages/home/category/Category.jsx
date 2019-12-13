@@ -4,9 +4,7 @@ import { Route, Redirect } from 'react-router-dom'
 import Header from './Header'
 import Search from '@/search/Search'
 
-import Classify from '@/category/Category'
-import Material from '@/category/Category'
-import cateAnimate from '@/hoc/cateAnimate'
+import Cate from '@/category/Category'
 
 import { CateWrap } from './styledCategory'
 
@@ -21,28 +19,31 @@ export default class Category extends Component {
           background="#efefef"
           wrapperBgc="#fff"
         ></Search>
+        <div className="cate-box">
           <Route 
             path="/category"
             children={() => (
-              <Classify
+              <Cate
                 defaultItem="热门"
                 type="category"
-              ></Classify>
+                
+              ></Cate>
             )}
           />
           <Route
             path="/material"
             children={() => (
-              <Material
+              <Cate
                 defaultItem="肉类"
                 type="material"
-              ></Material>
+              ></Cate>
             )}
           />
-        <Redirect
-          from="/"
-          to="/category"
-        />
+          <Redirect
+            from="/"
+            to="/category"
+          />
+        </div>
       </CateWrap>
     )
   }

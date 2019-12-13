@@ -4,6 +4,13 @@ import border from '@/styled/border'
 export const CateWrap = styled.div `
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .cate-box {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
 `
 
 export const HeaderWrap = styled.div `
