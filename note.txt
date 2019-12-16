@@ -3,12 +3,10 @@ react-router-dom
 redux
 - react-redux
 - redux-saga
-mobx
 styled-components
 antd-mobile
 immutable
 hooks
-typescript
 
 json-server
 
@@ -28,3 +26,15 @@ sagas
 
 公共sagas:
 takeEvery(listen_type, callback)
+
+
+redux 开发范式：
+1、按照功能组织目录
+- 容器组件
+- UI组件（展示组件，木偶组件）
+- action-types
+- action-creator
+- reducers
+- sagas
+- index
+2、按照角色组织目录

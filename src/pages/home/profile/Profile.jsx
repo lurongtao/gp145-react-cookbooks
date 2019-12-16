@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { SETSHOW } from '../action-types'
+import { setShow } from '../action-creators'
+
 
 import ProfileUI from './ProfileUI'
 
@@ -9,10 +10,7 @@ import ProfileUI from './ProfileUI'
   checked: state.home.isShow
 }), dispatch => ({
   changeStatus(checked) {
-    dispatch({
-      type: SETSHOW,
-      data: checked
-    })
+    dispatch(setShow(checked))
   }
 }))
 class Profile extends Component {
