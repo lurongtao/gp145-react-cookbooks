@@ -7,7 +7,7 @@ import { setShow } from '../action-creators'
 import ProfileUI from './ProfileUI'
 
 @connect(state => ({
-  checked: state.home.isShow
+  checked: state.getIn(['home', 'isShow'])
 }), dispatch => ({
   changeStatus(checked) {
     dispatch(setShow(checked))

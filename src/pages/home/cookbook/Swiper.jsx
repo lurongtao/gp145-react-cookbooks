@@ -6,9 +6,12 @@ import { SwiperWrap } from './styledCookbook'
 
 import { GETLIST } from '../action-types'
 
-const mapState = state => ({
-  list: state.home.list
-})
+const mapState = state => {
+  // console.log(state.getIn(['home', 'list']))
+  return ({
+    list: state.getIn(['home', 'list'])
+  })
+}
 
 const mapDispatch = dispatch => ({
   loadData() {
@@ -26,6 +29,7 @@ class Swiper extends Component {
   }
 
   render() {
+    // console.log(this.props.list)
     return (
       <SwiperWrap>
         {
@@ -35,7 +39,11 @@ class Swiper extends Component {
               infinite
             >
               {
-                this.props.list.slice(0, 5).map((value) => <img key={value.id} src={value.img} alt=""/>)
+                this.props.list.slice(0, 5).map((value) => {
+                  return (
+                    <img key={value.id} src={value.img} alt=""/>
+                  )
+                })
               }
             </Carousel>
           )

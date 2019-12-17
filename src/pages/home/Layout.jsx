@@ -14,9 +14,12 @@ import moreActive from 'assets/images/more-active.png'
 
 import { CookBook, Category, Map, Profile } from './index'
 
-@connect((state) => ({
-  isShow: state.home.isShow
-}))
+@connect((state) => {
+  // console.log(state.get('home'))
+  return ({
+    isShow: state.getIn(['home', 'isShow'])
+  })
+})
 class Layout extends React.Component {
   constructor(props) {
     super(props);

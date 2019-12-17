@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 @connect((state) => {
   return {
-    hotlist: state.home.list
+    hotlist: state.getIn(['home', 'list'])
   }
 })
 class HotList extends Component {
