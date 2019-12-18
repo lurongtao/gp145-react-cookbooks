@@ -8,6 +8,8 @@ antd-mobile
 immutable
 hooks
 
+
+
 json-server
 
 在home组件体系里：
@@ -38,3 +40,16 @@ redux 开发范式：
 - sagas
 - index
 2、按照角色组织目录
+
+
+项目部署与发布：
+1、前后端不分离
+2、前后端分离
+
+windows:
+start nginx
+nginx -s stop
+
+mac:
+nginx
+nginx -s stop
