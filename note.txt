@@ -74,3 +74,6 @@ https://jingyan.baidu.com/article/546ae1851b79d51149f28c8d.html
 wget http://localhost:9000/api/list
 
 http://note.youdao.com/noteshare?id=83af849ce2a06f86dab8a4af103e20be
+
+immutable:
+http://note.youdao.com/noteshare?id=86fb17ce7458df2701e3474ecf10366b
