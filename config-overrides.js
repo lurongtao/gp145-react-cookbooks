@@ -2,8 +2,11 @@ const {
   override,
   fixBabelImports,
   addWebpackAlias,
-  addDecoratorsLegacy
+  addDecoratorsLegacy,
+  setWebpackPublicPath
 } = require('customize-cra');
+
+const X = require('customize-cra')
 
 const path = require('path')
 
@@ -20,5 +23,7 @@ module.exports = override(
     '@': path.resolve(__dirname, './src/components'),
   }),
 
-  addDecoratorsLegacy()
+  addDecoratorsLegacy(),
+
+  // setWebpackPublicPath('http://fe.jiaxinmxx.top:8080/')
 )

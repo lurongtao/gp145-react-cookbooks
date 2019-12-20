@@ -53,3 +53,24 @@ nginx -s stop
 mac:
 nginx
 nginx -s stop
+
+centos:
+nginx 目录：
+/etc/nginx
+
+监测某个端口被哪个进程占用了
+lsof -i:80
+kill -9 15991
+
+清理DNS缓存
+https://jingyan.baidu.com/article/546ae1851b79d51149f28c8d.html
+
+2、前后端分离的部署方案一
+好处：
+- 后续联调和测试变得简单
+- 单独发布前后端服务
+
+
+wget http://localhost:9000/api/list
+
+http://note.youdao.com/noteshare?id=83af849ce2a06f86dab8a4af103e20be

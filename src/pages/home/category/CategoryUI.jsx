@@ -14,7 +14,7 @@ export default props => {
       <Header></Header>
       <Search
         width="0"
-        radius={5}
+        radius={15}
         background="#efefef"
         wrapperBgc="#fff"
       ></Search>
