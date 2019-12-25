@@ -4,7 +4,7 @@ export default class Map extends Component {
   render() {
     return (
       <iframe 
-        src="/map.html" 
+        src="/cookbook/map.html" 
         frameBorder="0" 
         title="ifrm"
         style={{

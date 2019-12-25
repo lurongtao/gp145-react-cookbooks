@@ -39,7 +39,7 @@ export default props => {
         />
         <Redirect
           from="/"
-          to="/category"
+          to="/cookbook/category"
         />
       </div>
     </CateWrap>

@@ -25,5 +25,5 @@ module.exports = override(
 
   addDecoratorsLegacy(),
 
-  // setWebpackPublicPath('http://fe.jiaxinmxx.top:8080/')
+  setWebpackPublicPath('http://jiaxinmxx.top/cookbook/')
 )
