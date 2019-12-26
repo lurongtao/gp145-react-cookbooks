@@ -18,6 +18,11 @@ export default props => {
         扫描二维码：
         <Button onClick={props.scanQRCode}>扫描</Button>
       </div>
+      <div style={{padding: 20}}>
+        拍照：
+        <img src={props.pic} alt="" style={{width: 100, height: 100}}/>
+        <Button onClick={props.takePicture}>拍照</Button>
+      </div>
     </>
   )
 }
